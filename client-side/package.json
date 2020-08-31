@@ -1,0 +1,16 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "1. Basic/Advance Data viewer\r     1. Pagination\r         1. First page\r         2. Next page\r         3. Page size\r     2. Filtering\r         1. 2 input\r 2. Basic/Advance Result viewer\r     1. Input fields for computation parameters",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./client-side/index.css">
+    <link rel="icon" type="image/png" href="./images/clock.PNG" />
+    <title>Meeting Time Voter</title>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#menu1">Basic Data Viewer</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu2">Advance Data Viewer</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu3">Basic Result Viewer</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu4">Advance Result Viewer</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane container active" id="menu1">
+                <div class="container mb-5">
+                    <h5 style="text-align: left; margin-top: 20px;">Sort data by...</h5>
+                    <form id="myfilterA">
+                        <input type="text" key="meetingId1A" placeholder="Meeting ID:">
+                        <input type="text" key="participantId1A" placeholder="Participant ID:">
+                        <button type="submit" class="btn btn-outline-primary">Submit</button>
+                    </form>
+                </div>
+                <div class="table-responsive">
+                    <table id="myTable" class="table-transparent">
+                        <tr class="header">
+                            <th style="width:30%;">Id</th>
+                            <th style="width:30%;">Meeting Id</th>
+                            <th style="width:30%;">Participant Id</th>
+                            <th style="width:30%;">Availability Id</th>
+                            <th style="width:30%;">Start Time</th>
+                            <th style="width:30%;">End Time</th>
+                        </tr>
+                        <tbody id='mytbody1'>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="form-row">
+                    <div class="col">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a fn="gotoFirstPage1" id="basic-data-first-page" class="page-link"
+                                        href="#">First</a>
+                                </li>
+                                <li class="page-item">
+                                    <a fn="changePage1" value="-1" id="basic-data-previous-page" class="page-link"
+                                        href="#">Previous</a>
+                                </li>
+                                <li class="page-item">
+                                    <a fn="changePage1" value="1" id="basic-data-next-page" class="page-link"
+                                        href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-1">
+                        <select fn="changePageSize1" id="basic-data-page-size-select" class="custom-select">
+                            <option value="5" selected>5</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane container fade" id="menu2">
+                <div class="container mb-5">
+                    <h5 style="text-align: left; margin-top: 20px;">Sort data by...</h5>
+                    <form id="myfilterU">
+                        <input type="text" key="meetingId1U" placeholder="Meeting ID:">
+                        <input type="text" key="participantId1U" placeholder="Participant ID:">
+                        <button type="submit" class="btn btn-outline-primary">Submit</button>
+                    </form>
+                </div>
+                <div class="table-responsive">
+                    <table id="myTable" class="table-transparent">
+                        <tr class="header">
+                            <th style="width:20%;">Id</th>
+                            <th style="width:20%;">Meeting Id</th>
+                            <th style="width:20%;">Participant Id</th>
+                            <th style="width:20%;">Unavailability Id</th>
+                            <th style="width:20%;">Start Time</th>
+                            <th style="width:20%;">End Time</th>
+                        </tr>
+                        <tbody id='mytbody2'>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="form-row">
+                    <div class="col">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item">
+                                    <a fn="gotoFirstPage2" id="advance-data-first-page" class="page-link"
+                                        href="#">First</a>
+                                </li>
+                                <li class="page-item">
+                                    <a fn="changePage2" value="-1" id="advance-data-previous-page" class="page-link"
+                                        href="#">Previous</a>
+                                </li>
+                                <li class="page-item">
+                                    <a fn="changePage2" value="1" id="advance-data-next-page" class="page-link"
+                                        href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-1">
+                        <select fn="changePageSize2" id="advance-data-page-size-select" class="custom-select">
+                            <option value="5" selected>5</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane container fade" id="menu3">
+                <h1></h1>
+                <form action="" method="post" class="needs-validation" id="compute1" role="form" novalidate>
+                    <div class="form-group">
+                        <label for="meetingId2A">Meeting Id:</label>
+                        <input type="number" class="form-control" id="meetingId2A" key="meetingId2A"
+                            placeholder="eg. 1110000001" name="meetingId2A" required>
+                        <div class="valid-feedback">Valid Meeting Id</div>
+                        <div class="invalid-feedback">Invalid Meeting Id</div>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary">Submit</button>
+                </form>
+                <h1></h1>
+                <h5 class="text-center" style="padding-bottom: 20px;">Based on participants' availability...</h5>
+                <div class="table-responsive">
+                    <table id="myTable" class="table-transparent">
+                        <tr class="header">
+                            <th style="width:20%;">Meeting Start Time</th>
+                            <th style="width:20%;">Meeting End Time</th>
+                            <th style="width:20%;">Participant(s) Id</th>
+                        </tr>
+                        <tbody id="myTable3" class="table-transparent">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane container fade" id="menu4">
+                <h1></h1>
+                <form action="" method="post" class="needs-validation" id="compute2" role="form" novalidate>
+                    <div class="form-group">
+                        <label for="meetingId2U">Meeting Id:</label>
+                        <input type="number" class="form-control" id="meetingId2U" key="meetingId2U"
+                            placeholder="eg. 9990000001" name="meetingId2U" required>
+                        <div class="valid-feedback">Valid Meeting Id</div>
+                        <div class="invalid-feedback">Invalid Meeting Id</div>
+                    </div>
+                    <h5>In 24hr format</h5>
+                    <div class="form-group">
+                        <label for="fromTime">Meeting Start Time:</label>
+                        <input type="number" class="form-control" id="fromTime" key="fromTime" placeholder="eg. 1000"
+                            name="fromTime" required>
+                        <div class="valid-feedback">Valid Start Time</div>
+                        <div class="invalid-feedback">Invalid Start Time</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="toTime">Meeting End Time:</label>
+                        <input type="number" class="form-control" id="toTime" key="toTime" placeholder="eg. 1200"
+                            name="toTime" required>
+                        <div class="valid-feedback">Valid End Time</div>
+                        <div class="invalid-feedback">Invalid End Time</div>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary">Submit</button>
+                </form>
+                <h5 class="text-center" style="padding-bottom: 20px;">Based on participants' unavailability...</h5>
+                <div class="table-responsive">
+                    <table id="myTable" class="table-transparent">
+                        <tr class="header">
+                            <th style="width:20%;">Meeting Start Time</th>
+                            <th style="width:20%;">Meeting End Time</th>
+                            <th style="width:20%;">Participant(s) Id</th>
+                        </tr>
+                        <tbody id="myTable4" class="table-transparent">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        axios.get(`${getUrlU}?page2=0&pageSize2=5`).then(function (response) {
+            console.log(response);
+            const data = response.data;
+            const postHtml1 = data.map(({ id, meetingid, participantid, unavailabilityid, starttime, endtime }) =>
+                `
+            <tr>
+                <td>${id}</td>
+                <td>${meetingid}</td>
+                <td>${participantid}</td>
+                <td>${unavailabilityid}</td>
+                <td>${starttime}</td>
+                <td>${endtime}</td>
+            </tr>
+            `,
+            );
+            $("#mytbody2").html(postHtml1);
+        }).catch(function (error) {
+            console.log(error);
+        });
+
+        axios.get(`${getUrlA}?page1=0&pageSize1=5`).then(function (response) {
+            console.log(response);
+            const data = response.data;
+            const postHtml1 = data.map(({ id, meetingid, participantid, availabilityid, starttime, endtime }) =>
+                `
+            <tr>
+                <td>${id}</td>
+                <td>${meetingid}</td>
+                <td>${participantid}</td>
+                <td>${availabilityid}</td>
+                <td>${starttime}</td>
+                <td>${endtime}</td>
+            </tr>
+            `,
+            );
+            $("#mytbody1").html(postHtml1);
+        }).catch(function (error) {
+            console.log(error);
+        });
+
+        $("#compute1").submit((event) => {
+            //prevents the page from refreshing
+            event.preventDefault();
+            const meetingId2A = $("#meetingId2A").val();
+
+            console.log(meetingId2A);
+            axios.get(`${resultUrlA}?meetingId=${meetingId2A}`).then(function (response) {
+                console.log(response);
+                const data = response.data.result;
+
+                var participants = '';
+                for (let i = 0; i < data.participants.length; i++) {
+                    participants += data.participants[i].participantId + ", ";
+                    // console.log(participants);
+                };
+
+                const postHtml2 = `
+                    <tr>
+                        <td>${data.fromTime}</td>
+                        <td>${data.toTime}</td>
+                        <td>${participants}</td>
+                    </tr>
+            `;
+
+                $("#myTable3").html(postHtml2);
+            }).catch(function (error) {
+                console.log('Get issues');
+                console.log(error);
+            });
+        });
+
+        $("#compute2").submit((event) => {
+            //prevents the page from refreshing
+            event.preventDefault();
+            const meetingId2U = $("#meetingId2U").val();
+            const fromTime = $("#fromTime").val();
+            const toTime = $("#toTime").val();
+
+            axios.get(`${resultUrlU}?meetingId=${meetingId2U}&fromTime=${fromTime}&toTime=${toTime}`).then(function (response) {
+                console.log(response);
+                const data = response.data.result;
+
+                var participants = '';
+                for (let i = 0; i < data.participants.length; i++) {
+                    participants += data.participants[i].participantId + ", ";
+                    // console.log(participants);
+                };
+
+                const postHtml3 = `
+                <tr>
+                    <td>${data.fromTime}</td>
+                    <td>${data.toTime}</td>
+                    <td>${participants}</td>
+                </tr>
+            `;
+                $("#myTable4").html(postHtml3);
+            }).catch(function (error) {
+                console.log('Get issues');
+                console.log(error);
+            });
+        });
+
+    </script>
+
+
+</body>
+
+</html>

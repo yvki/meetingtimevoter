@@ -1,0 +1,14 @@
+Get http://localhost:3000/basic/data?page1=0&pageSize1=5 HTTP/1.1
+Content-Type: application/json
+###
+Get http://localhost:3000/advance/data?page2=0&pageSize2=5 HTTP/1.1
+Content-Type: application/json
+###
+Get https://meetingtimevoter.herokuapp.com/basic/data HTTP/1.1
+Content-Type: application/json
+###
+Get http://localhost:3000/basic/result/?meetingId=1110000001 HTTP/1.1
+Content-Type: application/json
+###
+Get http://localhost:3000/advance/result?meetingId=9990000001&fromTime=1000&toTime=1200 HTTP/1.1
+Content-Type: application/json
