@@ -1,6 +1,3 @@
-# Project Background
-One of my modules for **Year 2** is **Application Devlopment Studio (aka ADES)** where I had to **develop a full stack web app and mobile prototype from scratch over 4 months** based on a given problem statement...
-
 ## Basic Problem
 Given the **start time** of a **meeting** and the **availability** of all **participants**, pick a **timeslot** that can **accommodate as many participants as possible**.
 
